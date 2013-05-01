@@ -1,0 +1,33 @@
+mp.configure("Switch Imp", [], []);
+
+// configure the imp's hardware
+hardware.pin1.configure(DIGITAL_OUT);
+
+function on() {
+    local value = 1;
+	hardware.pin1.write(value);
+	server.log("On Pressed!");
+}
+
+function off() {
+	local value = 0;
+	hardware.pin1.write(value);
+	server.log("Off Pressed!");
+}
+
+agent.on("on", function(val) {
+	on();
+});
+
+agent.on("off", function(val){
+	off();
+});
+
+agent.on("strobe",function(val){
+	for(local a=0; a<20; a+=1){
+			imp.sleep(100);
+			on();
+			imp.sleep(100);
+			off();
+	}
+});

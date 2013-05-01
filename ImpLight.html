@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<script>													
+		var xmlHttp = null;
+
+		function httpGet(url) {
+			var impURL = 'https://agent.electricimp.com/3zuteAE+YCQR';
+			xmlHttp = new XMLHttpRequest();
+			xmlHttp.open("GET",impURL+url,true);
+			xmlHttp.send(null);
+			console.log(url);
+		}
+
+		var onCommand = "lights on";
+		var offCommand = "lights off";
+		var strobeCommand = "strobe";
+
+		function transcribe(words){
+			if(words == "lights on"){
+				httpGet('/on');
+			}
+			if(words == "lights off"){
+				httpGet('/off');
+			}
+			if(words == "strobe"){
+				httpGet('/strobe');
+			}
+			//document.getElementById("mic").value = "";
+		}
+
+
+
+	</script>
+</head>
+<body>
+	<input type="text" id="mic" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech="x-webkit-speech" />	
+
+</body>
+</html>
