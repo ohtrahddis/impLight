@@ -3,9 +3,9 @@
 <head>
 	<script>													
 		var xmlHttp = null;
+		var impURL = '';
 
 		function httpGet(url) {
-			var impURL = 'https://agent.electricimp.com/3zuteAE+YCQR';
 			xmlHttp = new XMLHttpRequest();
 			xmlHttp.open("GET",impURL+url,true);
 			xmlHttp.send(null);
@@ -29,11 +29,19 @@
 			//document.getElementById("mic").value = "";
 		}
 
+		function changeImpID(url){
+			impURL = url;
+		}
+
 
 
 	</script>
 </head>
 <body>
+	Imp ID Url:
+	<input type="text" name="Imp Device URL" id="impID">
+	<button id="SubmitImpID" onclick="changeImpID(impID.value);">Submit URL</button><br>
+
 	<input type="text" id="mic" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech="x-webkit-speech" />	
 
 </body>
