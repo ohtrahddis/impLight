@@ -1,8 +1,9 @@
 #ImpLight
-Control a light with your voice!
+##Control a light with your voice!
+![lamp](http://i.imgur.com/3tOAQKC.jpg) ![circuit](http://i.imgur.com/BST6DdO.jpg)
 
 ## About
-### ImpLight takes uses the Electric Imp to control a lamp with your voice. 
+### ImpLight uses the Electric Imp to control a lamp with your voice. 
 A simple transistor circuit controls current flowing through the lamp, and is activated by "on" and "off" commands from the imp Agent.
 Voice control is added using Chrome's speech recognition for webkit browsers, so a simple html page makes GET requests to the imp's device URL.
 
